@@ -1,0 +1,19 @@
+{
+  "name": "jsexam",
+  "version": "1.0.0",
+  "description": "exam",
+  "main": "test.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szuri92/zerda-exam-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szuri92/zerda-exam-web/issues"
+  },
+  "homepage": "https://github.com/szuri92/zerda-exam-web#readme"
+}
