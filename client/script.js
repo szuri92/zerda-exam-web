@@ -3,7 +3,7 @@ var myButton = document.querySelector('button');
 var myList = document.querySelector('ul');
 
 function postData(mydata) {
-  myButton.innerText = 'Loading'
+  myList.innerHTML = '<li>Loading...</li>';
   let xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost:3000/exam');
   xhr.setRequestHeader('Content-Type', 'application/json');
@@ -19,7 +19,6 @@ function postData(mydata) {
         myListItem.innerText = serverResponse.message;
         myList.append(myListItem);
       }
-      myButton.innerText = 'Send';
     }
   }
 }
