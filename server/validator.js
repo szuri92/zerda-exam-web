@@ -6,15 +6,15 @@ var validatorModule = (function () {
                    "perfect", "propitious", "remarkable", "smart", "spectacular", "splendid",
                    "stellar", "stupendous", "super", "ultimate", "unbelievable", "wondrous"];
 
-  var isInNiceWords = function(feedback) {
+  var isInNiceWords = function (feedback) {
     var validatorCounter = 0;
-    var feedbackArray = feedback.split(" ");
+    var feedbackArray = feedback.split(' ');
     for (var i = 0; i < feedbackArray.length; i++) {
-      if ( niceWords.includes(feedbackArray[i]) == true) {
+      if ( niceWords.includes(feedbackArray[i]) === true) {
         validatorCounter++;
       }
     }
-    if ( validatorCounter >= 3 ) {
+    if (validatorCounter >= 3) {
       return true;
     } else {
       return false;
@@ -22,14 +22,14 @@ var validatorModule = (function () {
   }
 
   var validator = function(obj){
-    if ( parseInt(obj.scale) >= 10 && obj.email.split('').includes('@') == true && isInNiceWords(obj.feedback) == true) {
+    if ( parseInt(obj.scale) >= 10 && obj.email.split('').includes('@') === true && isInNiceWords(obj.feedback) === true) {
       return true;
     } else {
         return false;
     }
   }
 
-    return {
+  return {
       validator: validator
     };
 })();
