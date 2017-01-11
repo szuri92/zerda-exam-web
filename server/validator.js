@@ -22,7 +22,7 @@ var validatorModule = (function () {
   }
 
   var validator = function(obj){
-    if ( obj.scale >= 10 && obj.email.split('').includes('@') == true && isInNiceWords(obj.feedback) == true) {
+    if ( parseInt(obj.scale) >= 10 && obj.email.split('').includes('@') == true && isInNiceWords(obj.feedback) == true) {
       return true;
     } else {
         return false;
