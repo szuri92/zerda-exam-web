@@ -1,6 +1,7 @@
 'use strict';
 var myButton = document.querySelector('button');
-console.log(myButton.innerText);
+var myList = document.querySelector('ul');
+
 
 function postData(mydata) {
   myButton.innerText = 'Loading'
@@ -9,14 +10,20 @@ function postData(mydata) {
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(JSON.stringify(mydata));
   xhr.onreadystatechange = function() {
-  if (xhr.readyState === XMLHttpRequest.DONE) {
-    var serverResponse = JSON.parse(xhr.response);
-    renderStatus(serverResponse);
-    myButton.innerText = 'Send';
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      var serverResponse = JSON.parse(xhr.response);
+      if (serverResponse.status == 'ok') {
+        renderStatus(serverResponse);
+      } else if (serverResponse.status == 'error') {
+        var myListItem = document.createElement('li');
+        myList.innerHTML = '';
+        myListItem.innerText = serverResponse.message;
+        myList.append(myListItem);
+      }
+      myButton.innerText = 'Send';
+    }
   }
 }
-}
-
 
 function allData() {
   var myFeedback = document.querySelector('textarea');
@@ -28,11 +35,10 @@ function allData() {
 }
 
 function renderStatus(array) {
-  var myList = document.querySelector('ul');
   myList.innerHTML = '';
   console.log(myList);
   for(var i = 0; i < array.projects.length; i++) {
-    let myListItem = document.createElement('li');
+    var myListItem = document.createElement('li');
       myListItem.innerText = array.projects[i];
       console.log(myListItem);
       myList.append(myListItem);
