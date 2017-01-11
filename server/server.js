@@ -12,7 +12,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "'root'",
   password: "cerna2",
-  database: "vizsga"
+  database: "secretprojects"
 });
 
 app.use(express.static('../client'));
